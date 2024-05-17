@@ -1,0 +1,21 @@
+<html>
+<head>
+<title>leap year or not</title>
+</head>
+<body>
+<form method="post">
+<label>Enter a year:</label>
+<input type="text" name="year">
+<button>check </button>
+</form>
+<?php
+if($_SERVER["REQUEST_METHOD"]== "POST"){
+$year=$_POST['year'];
+if(($year%4==0 && $year%100!=0)|| ($year%400==0)){
+echo "It is leap year";
+}
+else{
+echo "It is not a leap year";
+}
+}
+?>
