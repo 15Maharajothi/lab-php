@@ -1,0 +1,32 @@
+<html>
+<head>
+	<title>guess number</title>
+</head>
+<body>
+<form method="post">
+	<label>Enter your guess number : </label>
+      <input type="text" id="guess" name="guess" min="1" max="100">
+	<button type="submit" > guess</button>
+</form>
+<?php
+session_start();
+ if(!isset($_SESSION['random'])){
+	$_SESSION['random']= rand(1,100);
+}
+	if($_SERVER["REQUEST_METHOD"]=="POST"){
+	$number = $_POST['guess'];
+	$random= $_SESSION['random'];
+		if($number>$random){
+			echo"Too high";
+		}
+		elseif($number<$random){
+			echo"Too low";
+		}
+		else{
+			echo "congratulation! it's correct";
+			unset($_SESSION['random']);
+		}
+}
+?>
+</body>
+</html>
