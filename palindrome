@@ -1,0 +1,30 @@
+<html>
+<head>
+	<title>Palindrom or not</title>
+</head>
+<body>
+<form method="post">
+<label>Enter a number :</label><br>
+<input type="text" name="number" id="number">
+<button> check palindrome</button>
+</form>
+<?php
+	if($_SERVER["REQUEST_METHOD"]=="POST"){
+		$number = $_POST['number'];
+		$original = $number;
+            $reverse =0;
+   		while($number !=0){
+            	$remainder = $number % 10;
+             	$reverse = $reverse *10 +$remainder;
+                  $number =(int) ($number/10);
+             }
+        if($original == $reverse){
+                     echo "It is palindrome";
+        }
+        else{
+                    echo "It is not  a palindrome";
+         }
+}
+?>
+</body>
+</html>
